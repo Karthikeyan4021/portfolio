@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balaji G - AI Specialist and Full Stack Web Developer</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+
+  <!-- Google Font Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Open+Sans:wght@400;500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Ionicons (already used) -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<style>
+/* Logo Zoom on Hover */
+.zoom-hover {
+  transition: transform 0.4s ease;
+}
+.zoom-hover:hover {
+  transform: scale(1.1);
+}
+
+/* Navbar Slide Down on Load */
+.animated-header {
+  animation: fadeSlideDown 1s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeSlideDown {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Fade-in Nav Links */
+.navbar-link {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.navbar-link:nth-child(1) { animation-delay: 0.2s; }
+.navbar-link:nth-child(2) { animation-delay: 0.4s; }
+.navbar-link:nth-child(3) { animation-delay: 0.6s; }
+.navbar-link:nth-child(4) { animation-delay: 0.8s; }
+.navbar-link:nth-child(5) { animation-delay: 1s; }
+.navbar-link:nth-child(6) { animation-delay: 1.2s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse animation for button */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.hero-title {
+  color: #ffffff;
+  text-align: left;
+  font-size: 2rem;
+  margin-top: 2rem;
+  line-height: 1.4;
+}
+
+.hero-title strong {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.typing-text {
+  color: #ffffff;
+  font-family: Poppins;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #fff;
+  width: 0;
+  display: inline-block;
+  animation: typing 4s steps(35, end) forwards, blink-caret 0.7s step-end infinite;
+  margin-top: 0.5rem;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+.project-img {
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.typing-text-wrapper {
+  color: #00ffd5;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: inline-block;
+  position: relative;
+}
+
+.typing-text::after {
+  animation: blink 1s step-start infinite;
+  position: absolute;
+  right: -10px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Hero Section Background Video */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.full-video-bg {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full screen height */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures full video coverage */
+  z-index: -2;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Optional dark overlay */
+  z-index: -1;
+}
+
+.about-content-wrapper {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+
+.skills-progress-box {
+  height: 10px;
+  background-color: #eee;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.skills-progress {
+  height: 100%;
+  background-color: #4caf50; /* You can customize color */
+  width: 0%;
+  border-radius: 20px;
+  transition: width 2s ease;
+}
+
+.animated-progress.visible {
+      width: var(--progress);
+      animation: glow 2s ease infinite alternate;
+    }
+
+    /* Glow Animation */
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 5px #4caf50, 0 0 10px #4caf50;
+      }
+      to {
+        box-shadow: 0 0 15px #4caf50, 0 0 25px #4caf50;
+      }
+    }
+
+    .footer-video-container {
+      position: relative;
+      width: 100%;
+      height: 100vh; /* Full page height */
+      overflow: hidden;
+    }
+
+    .footer-video-container video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    .footer-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .footer-content a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    .footer-content a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Optional dark overlay */
+      z-index: 1;
+    }
+
+
+</style>
+
+<body id="top">
+
+  <header class="header animated-header" data-header>
+    <div class="container">
+
+      <a href="#home">
+        <h1 class="logo zoom-hover">Balaji G</h1>
+      </a>
+
+      <button class="nav-toggle-btn" aria-label="Toggle Menu" data-nav-toggle-btn>
+        <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
+        <ion-icon name="close-outline" class="close-icon"></ion-icon>
+      </button>
+
+      <nav class="navbar container slide-down">
+        <ul class="navbar-list">
+
+          <li><a href="#home" class="navbar-link fade-in" data-nav-link>Home</a></li>
+          <li><a href="#about" class="navbar-link fade-in" data-nav-link>About</a></li>
+          <li><a href="#portfolio" class="navbar-link fade-in" data-nav-link>Portfolio</a></li>
+          <li><a href="#skills" class="navbar-link fade-in" data-nav-link>Skills</a></li>
+          <li><a href="#contact" class="navbar-link fade-in" data-nav-link>Contact</a></li>
+          <li><a href="projects.html" class="navbar-link fade-in" data-nav-link>Projects</a></li>
+          <li><a href="#blog" class="navbar-link fade-in" data-nav-link>Blog</a></li>
+
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+    <article>
+
+      <!-- #HERO -->
+      <section class="hero" id="home">
+        <div class="container">
+
+          <div class="hero-banner">
+            <img src="assets/images/hero-banner.jpg" width="800" height="864" loading="lazy" alt="balaji's Photo" class="img-cover">
+
+            <div class="elem elem-1">
+              <p class="elem-title">12</p>
+              <p class="elem-text">Years of Success</p>
+            </div>
+
+            <div class="elem elem-2">
+              <p class="elem-title">800+</p>
+              <p class="elem-text">Projects Completed</p>
+            </div>
+
+            <div class="elem elem-3">
+              <ion-icon name="trophy"></ion-icon>
+            </div>
+
+          </div>
+
+          <div class="hero-content">
+            <h2 class="hero-title">
+              <span>Hello I'm</span><br>
+              <strong>Balaji G</strong><br>
+              <span class="typing-text-wrapper">
+                <span id="typed-text" class="typing-text"></span>
+              </span>
+            </h2>
+
+            <p class="hero-text">
+              Crafting intelligent, responsive web solutions powered by cutting-edge AI and modern tech stacks.
+            </p>
+
+            <div class="btn-group">
+              <a href="#contact" class="btn btn-primary blue">Get a Quote</a>
+              <a href="#about" class="btn">About Me</a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <script>
+        const phrases = [
+          "Hi",
+          "AI Specialist",
+          "We have a Web Development Team too",
+          "Freelancer"
+        ];
+      
+        let index = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById("typed-text");
+      
+        function typeAnimation() {
+          const currentPhrase = phrases[index];
+          if (isDeleting) {
+            charIndex--;
+          } else {
+            charIndex++;
+          }
+      
+          typingElement.textContent = currentPhrase.substring(0, charIndex);
+      
+          let delay = isDeleting ? 50 : 100;
+      
+          if (!isDeleting && charIndex === currentPhrase.length) {
+            delay = 1000;
+            isDeleting = true;
+          } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            index = (index + 1) % phrases.length;
+            delay = 500;
+          }
+      
+          setTimeout(typeAnimation, delay);
+        }
+      
+        document.addEventListener("DOMContentLoaded", typeAnimation);
+      </script>
+      
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about full-video-bg" id="about">
+
+        <!-- Background Video -->
+        <video class="background-video" autoplay muted loop playsinline>
+          <source src="assets/videos/video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      
+        <!-- Optional: Dark overlay for better text visibility -->
+        <div class="video-overlay"></div>
+      
+        <div class="container about-content-wrapper">
+          <figure class="about-banner">
+            <img src="assets/images/about-banner.jpg" class="img-cover" alt="Ethan's Photo">
+      
+            <div class="abs-icon abs-icon-1">
+              <ion-icon name="logo-css3"></ion-icon>
+            </div>
+            <div class="abs-icon abs-icon-2">
+              <ion-icon name="logo-javascript"></ion-icon>
+            </div>
+            <div class="abs-icon abs-icon-3">
+              <ion-icon name="logo-angular"></ion-icon>
+            </div>
+          </figure>
+      
+          <div class="about-content">
+            <p class="section-subtitle">I'm an AI Specialist & Full Stack Web Developer</p>
+      
+            <h2 class="h2 section-title">💡 What I Do Best:</h2>
+      
+            <p class="section-text">
+              🤖 AI Development<br>
+              Machine Learning | Deep Learning | Computer Vision | NLP | Predictive Modeling
+            </p>
+      
+            <p class="section-text">
+              🌐 Full-Stack Web Development<br>
+              React.js | Node.js | PHP | Spring Boot | MySQL | REST APIs | Responsive UI/UX
+            </p>
+      
+            <p class="section-text">
+              🧠 Smart Web Integrations<br>
+              AI-powered web apps | Real-time analytics | Face Recognition | Voice Search | Smart Automation
+            </p>
+      
+            <p>
+              🛠 Tech Stack:<br>
+              Python, TensorFlow, OpenCV, Scikit-learn, React, Bootstrap, JavaScript, Flask, Spring Boot, MySQL, MongoDB, AWS
+            </p>
+      
+            <a href="#portfolio" class="btn btn-primary blue">View Portfolio</a>
+          </div>
+        </div>
+      </section>
+      
+
+<!-- 
+  - #PORTFOLIO
+-->
+
+<section class="section portfolio" id="portfolio">
+  <div class="container">
+
+    <p class="section-subtitle">Portfolio</p>
+
+    <h2 class="h2 section-title">My Amazing Works</h2>
+
+    <p class="section-text">
+      Explore my portfolio of groundbreaking projects that push the boundaries of innovation.
+    </p>
+
+    <ul class="portfolio-list">
+
+      <li>
+        <a href="#" class="portfolio-card">
+          <div class="card-content">
+
+          </div>
+
+          <!-- Embed the video with autoplay and loop functionality -->
+          <video class="portfolio-video" autoplay loop muted>
+            <source src="assets/videos/portfolioAI-1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+  <style>
+  
+/* Ensuring the video fits within the container */
+.portfolio-card {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 1800px; /* Adjust the width as needed */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.portfolio-video {
+  width: 100%;          /* Ensures the video takes the full width of the container */
+  height: 450px;        /* Adjust the height as per your design preference */
+  object-fit: cover;    /* Ensures the video covers the entire area without distortion */
+  border-radius: 10px;  /* Optional: Gives the video rounded corners */
+}
+
+/* Optional: Ensuring the card content sits correctly on top of the video */
+.card-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* Ensures the text is visible over the video */
+  text-align: center;
+}
+</style>  
+
+<section class="section portfolio" id="portfolio">
+  <div class="container">
+
+    <ul class="portfolio-list">
+
+      <li>
+        <a href="#" class="portfolio-card">
+          <div class="card-content">
+
+          </div>
+
+          <!-- Embed the video with autoplay and loop functionality -->
+          <video class="portfolio-video" autoplay loop muted>
+            <source src="assets/videos/portfolio-2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+  <section class="section portfolio" id="portfolio">
+    <div class="container">
+  
+      <ul class="portfolio-list">
+  
+        <li>
+          <a href="#" class="portfolio-card">
+            <div class="card-content">
+  
+            </div>
+  
+            <!-- Embed the video with autoplay and loop functionality -->
+            <video class="portfolio-video" autoplay loop muted>
+              <source src="assets/videos/web_development.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </a>
+        </li>
+      </ul>
+  
+    </div>
+
+    
+      <!-- 
+        - #SKILLS
+      -->
+
+        <!-- #SKILLS -->
+  <section class="section skills" id="skills">
+    <div class="container">
+
+      <p class="section-subtitle">My Skills</p>
+      <h2 class="h2 section-title">I Develop Skills Regularly</h2>
+      <p class="section-text">
+        Constantly evolving, I develop my skills to stay ahead. Growth is a journey, and I’m on the fast track!
+      </p>
+
+      <ul class="skills-list">
+
+        <li class="skills-item">
+          <div class="wrapper">
+            <h3 class="skills-title">HTML and CSS</h3>
+            <data class="skills-data" value="95">95%</data>
+          </div>
+          <div class="skills-progress-box">
+            <div class="skills-progress animated-progress" style="--progress: 95%;"></div>
+          </div>
+        </li>
+
+        <li class="skills-item">
+          <div class="wrapper">
+            <h3 class="skills-title">React</h3>
+            <data class="skills-data" value="80">80%</data>
+          </div>
+          <div class="skills-progress-box">
+            <div class="skills-progress animated-progress" style="--progress: 80%;"></div>
+          </div>
+        </li>
+
+        <li class="skills-item">
+          <div class="wrapper">
+            <h3 class="skills-title">MongoDB</h3>
+            <data class="skills-data" value="80">80%</data>
+          </div>
+          <div class="skills-progress-box">
+            <div class="skills-progress animated-progress" style="--progress: 80%;"></div>
+          </div>
+        </li>
+
+        <li class="skills-item">
+          <div class="wrapper">
+            <h3 class="skills-title">Python</h3>
+            <data class="skills-data" value="90">90%</data>
+          </div>
+          <div class="skills-progress-box">
+            <div class="skills-progress animated-progress" style="--progress: 90%;"></div>
+          </div>
+        </li>
+
+        <li class="skills-item">
+          <div class="wrapper">
+            <h3 class="skills-title">PHP</h3>
+            <data class="skills-data" value="80">80%</data>
+          </div>
+          <div class="skills-progress-box">
+            <div class="skills-progress animated-progress" style="--progress: 80%;"></div>
+          </div>
+        </li>
+
+        <li class="skills-item">
+          <div class="wrapper">
+            <h3 class="skills-title">JavaScript</h3>
+            <data class="skills-data" value="95">95%</data>
+          </div>
+          <div class="skills-progress-box">
+            <div class="skills-progress animated-progress" style="--progress: 95%;"></div>
+          </div>
+        </li>
+
+        <li class="skills-item">
+          <div class="wrapper">
+            <h3 class="skills-title">Matlab</h3>
+            <data class="skills-data" value="100">100%</data>
+          </div>
+          <div class="skills-progress-box">
+            <div class="skills-progress animated-progress" style="--progress: 100%;"></div>
+          </div>
+        </li>
+
+
+        <li class="skills-item">
+          <div class="wrapper">
+            <h3 class="skills-title">AI</h3>
+            <data class="skills-data" value="100">100%</data>
+          </div>
+          <div class="skills-progress-box">
+            <div class="skills-progress animated-progress" style="--progress: 100%;"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Scroll-triggered animation -->
+  <script>
+    const progressBars = document.querySelectorAll(".animated-progress");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+
+    progressBars.forEach(bar => {
+      observer.observe(bar);
+    });
+  </script>
+
+
+      <!-- 
+        - #CONTACT
+      -->
+
+      <section class="section contact" id="contact">
+        <div class="container">
+
+          <div class="contact-card">
+
+            <p class="card-subtitle">Get in Touch</p>
+
+            <h2 class="h2 section-title">Drop Me a Line</h2>
+
+            <div class="wrapper">
+
+              <form action="" class="contact-form">
+
+                <input type="text" name="name" placeholder="Name" required class="contact-input">
+
+                <input type="email" name="email" placeholder="Email" required class="contact-input">
+
+                <textarea name="message" placeholder="Message" required class="contact-input"></textarea>
+
+                <button type="submit" class="btn-submit">Submit Message</button>
+
+              </form>
+
+              <ul class="contact-list">
+
+                <li class="contact-item">
+
+                  <div class="contact-icon">
+                    <ion-icon name="location"></ion-icon>
+                  </div>
+
+                  <div>
+                    <h3 class="contact-item-title">Address</h3>
+
+                    <address class="contact-item-link">
+                     Madurai : No.130,North Veli Street, Upstairs ICICI Bank, Behind Anna Statue, Near Yanaikkal Sulthan Hotel, Madurai-625001
+                    </address>
+                  </div>
+
+                </li>
+
+                <li class="contact-item">
+
+                  <div class="contact-icon">
+                    <ion-icon name="mail"></ion-icon>
+                  </div>
+
+                  <div>
+                    <h3 class="contact-item-title">Email</h3>
+
+                    <a href="mailto:hello@ethan.com" class="contact-item-link">bitsbalaji@gmail.com</a>
+                  </div>
+
+                </li>
+
+                <li class="contact-item">
+
+                  <div class="contact-icon">
+                    <ion-icon name="call"></ion-icon>
+                  </div>
+
+                  <div>
+                    <h3 class="contact-item-title">Phone</h3>
+
+                    <a href="tel:+1234567890" class="contact-item-link">+91 9566757229</a>
+                  </div>
+
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #BLOG
+      -->
+
+      <section class="section blog" id="blog">
+        <div class="container">
+      
+          <p class="section-subtitle">Latest News</p>
+      
+          <h2 class="h2 section-title">Checkout My Recent Blogs</h2>
+      
+          <p class="section-text">
+            Explore my latest blogs for fresh insights, expert tips, and engaging content that keeps you ahead of the curve. Dive in now!
+          </p>
+      
+          <ul class="blog-list">
+      
+            <li>
+              <div class="blog-card">
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/blog-1.jpg" width="1181" height="843" loading="lazy"
+                      alt="AI workshop image" class="img-cover">
+                  </a>
+                </figure>
+      
+                <a href="#" class="card-tag">AI workshop</a>
+      
+                <h3 class="card-title">
+                  <a href="#">AI workshop to explore cutting-edge technologies and learn how artificial intelligence is transforming industries!</a>
+                </h3>
+              </div>
+            </li>
+      
+            <li>
+              <div class="blog-card">
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/blog-2.jpg" width="1181" height="843" loading="lazy"
+                      alt="Web Development" class="img-cover">
+                  </a>
+                </figure>
+      
+                <a href="#" class="card-tag">Web Development</a>
+      
+                <h3 class="card-title">
+                  <a href="#">Master the art of web development and build dynamic, responsive websites with the latest technologies and frameworks!</a>
+                </h3>
+              </div>
+            </li>
+      
+            <li>
+              <div class="blog-card">
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="./assets/images/blog-3.jpg" width="1181" height="843" loading="lazy"
+                      alt="Technical Guidance" class="img-cover">
+                  </a>
+                </figure>
+      
+                <a href="#" class="card-tag">Technical Guidance</a>
+      
+                <h3 class="card-title">
+                  <a href="#">We provide expert guidance to code your vision into reality.</a>
+                </h3>
+              </div>
+            </li>
+      
+          </ul>
+      
+        </div>
+      </section>
+      
+      <!-- Full-screen Footer Video Section -->
+      <section class="footer-video-container" style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
+        <video autoplay muted loop playsinline style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); object-fit: cover; z-index: -1;">
+          <source src="assets/videos/footer.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+    
+      </section>
+      
+      <!-- Footer Info Section -->
+      <footer class="footer">
+        <div class="container">
+      
+          <p class="copyright">
+            &copy; 2025 <a href="https://visioncorpinfotech.com/" class="copyright-link">Visioncorpinfotech</a>.
+            All Rights Reserved
+          </p>
+      
+          <ul class="footer-list">
+            <li>
+              <a href="#" class="footer-link">Terms & Conditions</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Privacy Policy</a>
+            </li>
+          </ul>
+      
+        </div>
+      </footer>
+  
+      
+      <!-- Contact Icons -->
+    <div class="contact-icons">
+      <a href="https://wa.me/9566757229" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+      </a>
+      <a href="mailto:bitsbalaji@gmail.com">
+        <img src="https://img.icons8.com/color/48/000000/gmail-new.png" alt="Email">
+      </a>
+    </div>
+
+
+      <!-- Back to Top Button -->
+      <a href="#top" class="back-to-top" data-back-to-top>BACK TOP</a>
+      
+      <!-- Custom JS -->
+      <script src="./assets/js/script.js"></script>
+      
+      <!-- Ionicons -->
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      
+
+</body>
+</html>
